@@ -1,7 +1,7 @@
 package com.company.lesson2;
 
-import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.*;
 
 public class FileReader {
@@ -103,6 +103,17 @@ public class FileReader {
     }
 
     private void ScannerInit() throws FileNotFoundException {
-        input = new Scanner(new File(this.filename));
+        //without maven: input = new Scanner(new File(this.filename));
+        //with maven:
+        input = new Scanner(this.getFileFromResourceAsStream());
+    }
+
+    private InputStream getFileFromResourceAsStream(){
+        InputStream stream = FileReader.class.getResourceAsStream("/" + filename);
+        if(stream == null){
+            throw new IllegalArgumentException("file not found! " + filename);
+        } else {
+            return stream;
+        }
     }
 }
