@@ -1,9 +1,10 @@
 
 .DS_Store
 out/
+/src
 .idea
 idea_modules/
-src/com/company/test
+Playground/
 *.ipr
 *.iws
 target/
