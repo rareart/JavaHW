@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>Lesson4</artifactId>
+        <groupId>groupId</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>Feed</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>FeedRecommendations</module>
+        <module>UserFeed</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <BasicInterfaces.version>1.0-SNAPSHOT</BasicInterfaces.version>
+        <MusicPlayer.version>1.0-SNAPSHOT</MusicPlayer.version>
+        <PhotoViewer.version>1.0-SNAPSHOT</PhotoViewer.version>
+        <Profiles.version>1.0-SNAPSHOT</Profiles.version>
+        <VideoPlayer.version>1.0-SNAPSHOT</VideoPlayer.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>BasicInterfaces</artifactId>
+            <version>${BasicInterfaces.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>MusicPlayer</artifactId>
+            <version>${MusicPlayer.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>PhotoViewer</artifactId>
+            <version>${PhotoViewer.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>Profiles</artifactId>
+            <version>${Profiles.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>VideoPlayer</artifactId>
+            <version>${VideoPlayer.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
