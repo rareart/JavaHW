@@ -1,13 +1,9 @@
 package task6;
 
-import task5.Cache;
-
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.time.ZonedDateTime;
-
-import static java.time.OffsetDateTime.now;
 
 public class PerformanceProxyInvocationHandler implements InvocationHandler {
     private final Object delegate;
