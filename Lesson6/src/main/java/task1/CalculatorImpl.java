@@ -1,14 +1,12 @@
 package task1;
 
-import com.sun.xml.internal.txw2.IllegalAnnotationException;
-
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 public class CalculatorImpl implements Calculator {
 
     @Override
-    public int calc(int number) throws IllegalAnnotationException, IllegalArgumentException, NoSuchMethodException {
+    public int calc(int number) throws IllegalArgumentException, NoSuchMethodException {
         //блок для задания 6:
         try {
             Thread.sleep(1000);
@@ -39,6 +37,6 @@ public class CalculatorImpl implements Calculator {
                 }
             }
         }
-        throw new IllegalAnnotationException("Param annotation not found");
+        throw new IllegalArgumentException("Param annotation not found");
     }
 }

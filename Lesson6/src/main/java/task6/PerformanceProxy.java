@@ -6,6 +6,7 @@ public class PerformanceProxy<T> {
 
     private final T proxyForService;
 
+    @SuppressWarnings("unchecked")
     public PerformanceProxy(T service) {
         Object proxy = Proxy.newProxyInstance(
                 service.getClass().getClassLoader(),
