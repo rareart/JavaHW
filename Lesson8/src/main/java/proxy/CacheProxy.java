@@ -1,23 +1,26 @@
 package proxy;
 
+import java.lang.reflect.Proxy;
+
 public class CacheProxy {
 
-    private boolean defaultZipEnabled;
-    private Cache defaultCacheType;
-    private String rootFolder;
+    private final String dirPath;
+    private boolean zipEnabled;
 
     public CacheProxy() {
-        rootFolder = "";
+        dirPath = "/";
     }
 
-    public CacheProxy(String rootFolder, boolean defaultZipEnabled, Cache defaultCacheType) {
-        this.rootFolder = "/" + rootFolder;
-        this.defaultZipEnabled = defaultZipEnabled;
-        this.defaultCacheType = defaultCacheType;
+    public CacheProxy(String dirPath, boolean isZipEnabled) {
+        this.dirPath = "/" + dirPath;
+        this.zipEnabled = isZipEnabled;
     }
 
-    public <T> T cache(T newCachedObj){
-
-        return null; //дописать
+    @SuppressWarnings("unchecked")
+    public <T> T cache(T newCachedObj, boolean logs) throws CachedProxyException {
+        return (T) Proxy.newProxyInstance(
+                newCachedObj.getClass().getClassLoader(),
+                newCachedObj.getClass().getInterfaces(),
+                new ProxyInvocationHandler(newCachedObj, this.dirPath, this.zipEnabled, logs));
     }
 }

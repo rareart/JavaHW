@@ -9,9 +9,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface Cache {
     CacheTypes cacheType() default CacheTypes.IN_MEMORY;
-    String fileNamePrefix() default "";
-    boolean zip() default false;
     Class<?>[] identityBy() default {};
-    long listList() default Long.MAX_VALUE;
-    CuttingOptions listCuttingOption() default CuttingOptions.СUT_AFTER;
+    int listList() default Integer.MAX_VALUE;
+    CuttingOptions listCuttingOption() default CuttingOptions.CUT_AFTER;
 }
