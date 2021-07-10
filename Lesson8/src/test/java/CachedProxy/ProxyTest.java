@@ -11,6 +11,10 @@ import java.util.List;
 
 public class ProxyTest {
 
+    //Это задание было сделано не очень хорошо (а точнее - плохо).
+    //Я полностью переписал его в уроке 14, плюс сделал прокси конкурентным.
+    //Лучше сразу смотреть задание там
+
     @Test
     public void cacheProxyTest() throws CachedProxyException {
         Service service = new ServiceImpl();

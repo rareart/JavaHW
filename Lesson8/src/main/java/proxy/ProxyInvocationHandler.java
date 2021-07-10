@@ -7,6 +7,10 @@ import java.util.*;
 
 public class ProxyInvocationHandler implements InvocationHandler {
 
+    //Это задание было сделано не очень хорошо (а точнее - плохо).
+    //Я полностью переписал его в уроке 14, плюс сделал прокси конкурентным.
+    //Лучше сразу смотреть задание там
+
     private final HashMap<Method, Map<List<Object>, Object>> memoryCache;
     private final HashMap<String, HashMap<List<NonSerializableClassWrapper>, NonSerializableClassWrapper>> fileCache;
     private final Object delegate;

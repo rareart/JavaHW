@@ -8,16 +8,20 @@ public class CacheProxy {
     private boolean zipEnabled;
 
     public CacheProxy() {
-        dirPath = "/";
+        dirPath = "";
     }
 
     public CacheProxy(String dirPath, boolean isZipEnabled) {
-        this.dirPath = "/" + dirPath;
+        if(dirPath == null || dirPath.equals("")){
+            this.dirPath = "";
+        } else {
+            this.dirPath = "/" + dirPath;
+        }
         this.zipEnabled = isZipEnabled;
     }
 
     @SuppressWarnings("unchecked")
-    public <T> T cache(T newCachedObj, boolean logs) throws CachedProxyException {
+    public <T> T cache(T newCachedObj, boolean logs) {
         return (T) Proxy.newProxyInstance(
                 newCachedObj.getClass().getClassLoader(),
                 newCachedObj.getClass().getInterfaces(),
