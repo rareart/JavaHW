@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error_from_exception.jsp</location>
+    </error-page>
+
+    <servlet>
+        <servlet-name>initDatabaseServlet</servlet-name>
+        <servlet-class>com.rareart.lesson19_2.servlets.InitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>initDatabaseServlet</servlet-name>
+        <url-pattern>/initdb</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>organizationServlet</servlet-name>
+        <servlet-class>com.rareart.lesson19_2.servlets.OrganizationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>organizationServlet</servlet-name>
+        <url-pattern>/organization</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>departmentServlet</servlet-name>
+        <servlet-class>com.rareart.lesson19_2.servlets.DepartmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>departmentServlet</servlet-name>
+        <url-pattern>/department</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>employeeServlet</servlet-name>
+        <servlet-class>com.rareart.lesson19_2.servlets.EmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>employeeServlet</servlet-name>
+        <url-pattern>/employee</url-pattern>
+    </servlet-mapping>
+</web-app>
