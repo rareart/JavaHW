@@ -5,8 +5,7 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Empty web page. Use REST-methods for this service." %>
-</h1>
+<h1>Empty web page. Use REST-methods for this service</h1>
 <br/>
 
 </body>
