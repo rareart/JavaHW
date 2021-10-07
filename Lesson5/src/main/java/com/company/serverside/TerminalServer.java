@@ -39,7 +39,6 @@ public class TerminalServer {
             return true;
         }
         return false;
-
     }
 
     public void closeCurrentSession(){
