@@ -6,17 +6,19 @@ import java.util.Set;
 
 public interface RecipeDAO {
 
-    Recipe findRecipeByName(String name);
+    Recipe findRecipe(String name);
 
     Set<Recipe> findRecipesByKeyword(String keyword);
 
-    Recipe findRecipeById(int id);
+    Recipe findRecipe(int id);
 
-    void addRecipes(Recipe... recipes);
+    int[] addRecipes(Recipe... recipes);
 
-    void addPhotoToRecipe(byte[] photo);
+    void addPhotoToRecipe(String name, byte[] photo);
 
-    boolean removeRecipeByName(String name);
+    void addPhotoToRecipe(int id, byte[] photo);
 
-    boolean removeRecipeById(int id);
+    boolean removeRecipe(String name);
+
+    boolean removeRecipe(int id);
 }

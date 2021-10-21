@@ -1,17 +1,15 @@
 package model;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.Objects;
 
 public class Recipe {
     private int id;
     private String name;
-    private char[] description;
-    private char[] instructions;
+    private String description;
+    private String instructions;
     private byte[] photo;
-    private Map<Ingredient, IngredientAmount> ingredients;
+    private List<Ingredient> ingredients;
 
     public int getId() {
         return id;
@@ -29,19 +27,19 @@ public class Recipe {
         this.name = name;
     }
 
-    public char[] getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(char[] description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public char[] getInstructions() {
+    public String getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(char[] instructions) {
+    public void setInstructions(String instructions) {
         this.instructions = instructions;
     }
 
@@ -53,11 +51,11 @@ public class Recipe {
         this.photo = photo;
     }
 
-    public Map<Ingredient, IngredientAmount> getIngredients() {
-        return new HashMap<>(this.ingredients);
+    public List<Ingredient> getIngredients() {
+        return ingredients;
     }
 
-    public void setIngredients(Map<Ingredient, IngredientAmount> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
@@ -66,8 +64,8 @@ public class Recipe {
         return "Recipe{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", description=" + Arrays.toString(description) +
-                ", instructions=" + Arrays.toString(instructions) +
+                ", description=" + description +
+                ", instructions=" + instructions +
                 ", " + (photo != null ? "photo available" : "photo not available") +
                 ", ingredients=" + ingredients +
                 '}';
