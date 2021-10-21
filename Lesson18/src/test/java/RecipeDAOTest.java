@@ -35,11 +35,11 @@ public class RecipeDAOTest {
 
     @AfterEach
     public void clear(){
-        JdbcTestUtils.deleteFromTables(jdbcTemplate, "RECIPE", "INGREDIENT", "RECIPE_INGREDIENT");
+        JdbcTestUtils.deleteFromTables(jdbcTemplate, "RECIPE_INGREDIENT", "INGREDIENT", "RECIPE");
     }
 
     @Test
-    public void setAndGet(){
+    public void addAndFindRecipes(){
         IngredientAmount ingredientAmount1 = new IngredientAmount();
         ingredientAmount1.setUnit("kg");
         ingredientAmount1.setAmount(1.42D);
@@ -49,8 +49,8 @@ public class RecipeDAOTest {
         ingredient1.setIngredientAmount(ingredientAmount1);
 
         IngredientAmount ingredientAmount2 = new IngredientAmount();
-        ingredientAmount1.setUnit("gram");
-        ingredientAmount1.setAmount(20.5D);
+        ingredientAmount2.setUnit("gram");
+        ingredientAmount2.setAmount(20.5D);
 
         Ingredient ingredient2 = new Ingredient();
         ingredient2.setName("yeast");
@@ -102,6 +102,7 @@ public class RecipeDAOTest {
         tea.setDescription("Earl gray tea");
         tea.setIngredients(ingredients2);
 
+        recipeDAO.addRecipes(cake, tea);
 
         Recipe cakeFromDAO = recipeDAO.findRecipe("Cake");
         Recipe teaFromDAO = recipeDAO.findRecipe("Tea");
@@ -109,4 +110,6 @@ public class RecipeDAOTest {
         System.out.println(cakeFromDAO.toString());
         System.out.println(teaFromDAO.toString());
     }
+
+    //todo: another cases
 }

@@ -2,9 +2,8 @@ package dao;
 
 import model.Ingredient;
 import model.Recipe;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -13,7 +12,6 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsertOperations;
 import org.springframework.jdbc.core.support.AbstractLobCreatingPreparedStatementCallback;
 import org.springframework.jdbc.support.lob.LobCreator;
 import org.springframework.jdbc.support.lob.LobHandler;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,8 +20,6 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Qualifier("RecipeDAO")
-@Repository
 public class RecipeDAOImpl implements RecipeDAO {
 
     private final String SQL_SELECT_ID_BY_NAME = "SELECT id FROM RECIPE WHERE name = ?";
@@ -44,7 +40,6 @@ public class RecipeDAOImpl implements RecipeDAO {
 
     private final IngredientDAO ingredientDAO;
 
-    @Autowired
     public RecipeDAOImpl(JdbcTemplate jdbcTemplate,
                          SimpleJdbcInsertOperations jdbcInsertRecipeOperations,
                          LobHandler lobHandler,
@@ -97,8 +92,15 @@ public class RecipeDAOImpl implements RecipeDAO {
         int [] id_array = jdbcInsertRecipeOperations.executeBatch(recipesParams);
 
         List<List<Ingredient>> ingredients = Arrays.stream(recipes).map(Recipe::getIngredients).collect(Collectors.toList());
-        ingredients.forEach(ingredientList -> ingredientList.
-                forEach(ingredient -> jdbcTemplate.update(SQL_INSERT_INGREDIENT, ingredient.getName())));
+        for (List<Ingredient> ingredientsList: ingredients){
+            for (Ingredient ingredient : ingredientsList){
+                try{
+                    jdbcTemplate.queryForObject(SQL_SELECT_INGREDIENT_ID_BY_NAME, Integer.class, ingredient.getName());
+                } catch (EmptyResultDataAccessException e){
+                    jdbcTemplate.update(SQL_INSERT_INGREDIENT, ingredient.getName());
+                }
+            }
+        }
 
         for (Recipe recipe: recipes){
             Integer recipe_id = jdbcTemplate.queryForObject(SQL_SELECT_ID_BY_NAME, Integer.class, recipe.getName());

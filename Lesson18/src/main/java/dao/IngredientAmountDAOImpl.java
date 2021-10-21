@@ -1,17 +1,14 @@
 package dao;
 
 import model.IngredientAmount;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsertOperations;
-import org.springframework.stereotype.Repository;
 
-@Qualifier("IngredientAmount")
-@Repository
+
 public class IngredientAmountDAOImpl implements IngredientAmountDAO {
 
     private final String SQL_SELECT = "SELECT * FROM RECIPE_INGREDIENT WHERE recipe_id = ? and ingredient_id = ?";

@@ -1,13 +1,10 @@
 package dao;
 
 import model.Ingredient;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
 
-@Qualifier("IngredientDAO")
-@Repository
+
 public class IngredientDAOImpl implements IngredientDAO {
 
     private final String SQL_SELECT = "SELECT * FROM INGREDIENT WHERE id = ?";
