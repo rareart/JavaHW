@@ -9,7 +9,7 @@ Lesson 10: multithreading factorial calc demo;
 
 Lesson 11: basic thread-pool implementation;
 
-Lesson 14: concurrent cache proxy (with ProxyInvocationHandler, java serialization and some optional settings);
+Lesson 14: concurrent cache proxy (with ProxyInvocationHandler, serialization to file and some optional settings);
 
 Lesson 16: JDBC simple demo;
 
