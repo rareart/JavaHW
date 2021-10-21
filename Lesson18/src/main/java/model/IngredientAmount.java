@@ -3,7 +3,6 @@ package model;
 import java.util.Objects;
 
 public class IngredientAmount {
-
     private int id;
     private String unit;
     private double amount;

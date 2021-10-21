@@ -67,5 +67,4 @@ public class DAOComponentsConfiguration {
                                IngredientDAO ingredientDAO){
         return new RecipeDAOImpl(jdbcTemplate, jdbcInsertRecipeOperations, lobHandler, ingredientDAO);
     }
-
 }
