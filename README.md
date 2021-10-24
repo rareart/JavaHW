@@ -3,7 +3,7 @@
 
 List of tasks:
 
-Lesson 1-9,12,13,15,17,19.1: base practice;
+Lesson 1-9,12,13,15,17,19.1,20: base practice;
 
 Lesson 10: multithreading factorial calc demo;
 
