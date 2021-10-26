@@ -3,13 +3,12 @@ package com.rareart.lesson20.model;
 import lombok.*;
 import org.springframework.data.annotation.AccessType;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
+@Table(name = "COMPANY")
 @AccessType(AccessType.Type.FIELD)
 @NoArgsConstructor
 @Getter
@@ -17,7 +16,7 @@ import java.io.Serializable;
 @ToString
 public class Company implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Basic(optional = false)
     private String name;
@@ -25,6 +24,19 @@ public class Company implements Serializable {
     public Company(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Company company = (Company) o;
+        return Objects.equals(name, company.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
 
