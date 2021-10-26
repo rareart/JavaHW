@@ -3,7 +3,7 @@
 
 List of tasks:
 
-Lesson 1-9,12,13,15,17,19.1,20: base practice;
+Lesson 1-9,12,13,15,17,19.1: base practice;
 
 Lesson 10: multithreading factorial calc demo;
 
@@ -18,3 +18,5 @@ Lesson 18: Spring-JDBC simple demo with transactions;
 Lesson 19.2: Java EE simple demo (Servlets, JSP, gson) with concurrent JDBC DAO;
 
 Lesson 19.3: some Spring MVC practice with REST-controllers, RestTemplate client and terminal module from another lesson.
+
+Lesson 20: Spring JPA (Hibernate) base practice.
